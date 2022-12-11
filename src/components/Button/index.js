@@ -1,5 +1,5 @@
 import React from "react";
 
-const Button = () => <button data-testId="button" />;
+const Button = ({ text }) => <button data-testId="button">{text}</button>;
 
 export default Button;

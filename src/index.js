@@ -1,11 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import BigTitle from './components/BigTitle';
+import React from "react";
+import ReactDOM from "react-dom";
+import NewDiet from "./components/NewDiet";
 
-ReactDOM.render(
-  <>
-    <BigTitle title="Ultimate Diet"/>
-  </> 
-  ,
-  document.getElementById('ultimate-diet')
-);
+ReactDOM.render(<NewDiet />, document.getElementById("ultimate-diet"));
