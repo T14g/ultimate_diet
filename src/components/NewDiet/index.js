@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import BigTitle from "../BigTitle";
 import Button from "../Button";
 import Input from "../Input";
-import { WP_PASSWORD } from "../../../config";
+import { WP_PASSWORD_ADMIN } from "../../../config";
 
 const NewDiet = () => {
   const [inputOne, setInputOne] = useState("");
@@ -13,7 +13,7 @@ const NewDiet = () => {
 
     fetch(url, {
       method: "POST",
-      body: JSON.stringify({ username: "admin", password: WP_PASSWORD }),
+      body: JSON.stringify({ username: "admin", password: WP_PASSWORD_ADMIN }),
     })
       .then((result) => result.json())
       .then((data) => {
