@@ -13,6 +13,9 @@ const NewDiet = () => {
 
     fetch(url, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({ username: "admin", password: WP_PASSWORD_ADMIN }),
     })
       .then((result) => result.json())
