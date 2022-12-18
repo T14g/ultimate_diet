@@ -4,9 +4,10 @@ import Button from "../Button";
 import Input from "../Input";
 import { WP_PASSWORD_ADMIN } from "../../../config";
 
+import NewDietStyles, { DietRow, DietColumn } from "./NewDiet.styles";
+
 const NewDiet = () => {
-  const [inputOne, setInputOne] = useState("");
-  const [inputTwo, setInputTwo] = useState("");
+  const [diet, setDiet] = useState([]);
 
   const createPost = () => {
     const url = "http://localhost/wp-diet/wp-json/wp/v2/diets";
@@ -26,7 +27,7 @@ const NewDiet = () => {
     })
       .then((result) => result.json())
       .then((data) => {
-       console.log(data);
+        console.log(data);
       });
   };
 
@@ -49,14 +50,85 @@ const NewDiet = () => {
   };
 
   return (
-    <div>
-      <BigTitle title="Create a New Diet" />
-      <Input handleOnChange={setInputOne} />
+    <NewDietStyles>
+      <DietRow>
+        <DietColumn>Domingo</DietColumn>
+        <DietColumn>Segunda</DietColumn>
+        <DietColumn>Terça</DietColumn>
+        <DietColumn>Quarta</DietColumn>
+        <DietColumn>Quinta</DietColumn>
+        <DietColumn>Sexta</DietColumn>
+        <DietColumn>Sábado</DietColumn>
+      </DietRow>
+      <DietRow>
+        <DietColumn>Domingo</DietColumn>
+        <DietColumn>Segunda</DietColumn>
+        <DietColumn>Terça</DietColumn>
+        <DietColumn>Quarta</DietColumn>
+        <DietColumn>Quinta</DietColumn>
+        <DietColumn>Sexta</DietColumn>
+        <DietColumn>Sábado</DietColumn>
+      </DietRow>
+      <DietRow>
+        <DietColumn>Domingo</DietColumn>
+        <DietColumn>Segunda</DietColumn>
+        <DietColumn>Terça</DietColumn>
+        <DietColumn>Quarta</DietColumn>
+        <DietColumn>Quinta</DietColumn>
+        <DietColumn>Sexta</DietColumn>
+        <DietColumn>Sábado</DietColumn>
+      </DietRow>
+      <DietRow>
+        <DietColumn>Domingo</DietColumn>
+        <DietColumn>Segunda</DietColumn>
+        <DietColumn>Terça</DietColumn>
+        <DietColumn>Quarta</DietColumn>
+        <DietColumn>Quinta</DietColumn>
+        <DietColumn>Sexta</DietColumn>
+        <DietColumn>Sábado</DietColumn>
+      </DietRow>
+      <DietRow>
+        <DietColumn>Domingo</DietColumn>
+        <DietColumn>Segunda</DietColumn>
+        <DietColumn>Terça</DietColumn>
+        <DietColumn>Quarta</DietColumn>
+        <DietColumn>Quinta</DietColumn>
+        <DietColumn>Sexta</DietColumn>
+        <DietColumn>Sábado</DietColumn>
+      </DietRow>
+      <DietRow>
+        <DietColumn>Domingo</DietColumn>
+        <DietColumn>Segunda</DietColumn>
+        <DietColumn>Terça</DietColumn>
+        <DietColumn>Quarta</DietColumn>
+        <DietColumn>Quinta</DietColumn>
+        <DietColumn>Sexta</DietColumn>
+        <DietColumn>Sábado</DietColumn>
+      </DietRow>
+      <DietRow>
+        <DietColumn>Domingo</DietColumn>
+        <DietColumn>Segunda</DietColumn>
+        <DietColumn>Terça</DietColumn>
+        <DietColumn>Quarta</DietColumn>
+        <DietColumn>Quinta</DietColumn>
+        <DietColumn>Sexta</DietColumn>
+        <DietColumn>Sábado</DietColumn>
+      </DietRow>
+      {/* <BigTitle title="Create a New Diet" />
+      <Input handleOnChange={setDiet} />
       <br />
-      <Input handleOnChange={setInputTwo} />
+      <Input handleOnChange={setDiet} />
       <br />
-      <Button text="Save" handleOnClick={handleSubmit} />
-    </div>
+      <Input handleOnChange={setDiet} />
+      <br />
+      <Input handleOnChange={setDiet} />
+      <br />
+      <Input handleOnChange={setDiet} />
+      <br />
+      <Input handleOnChange={setDiet} />
+      <br />
+      <Button text="Save" handleOnClick={handleSubmit} /> */}
+    </NewDietStyles>
   );
 };
 
