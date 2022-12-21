@@ -61,58 +61,165 @@ const NewDiet = () => {
         <DietColumn>Sábado</DietColumn>
       </DietRow>
       <DietRow>
-        <DietColumn>Domingo</DietColumn>
-        <DietColumn>Segunda</DietColumn>
-        <DietColumn>Terça</DietColumn>
-        <DietColumn>Quarta</DietColumn>
-        <DietColumn>Quinta</DietColumn>
-        <DietColumn>Sexta</DietColumn>
-        <DietColumn>Sábado</DietColumn>
+        <DietColumn>
+          <Input name="dom_1" />
+        </DietColumn>
+        <DietColumn>
+          <Input name="dom_2" />
+        </DietColumn>
+        <DietColumn>
+          <Input name="dom_3" />
+        </DietColumn>
+        <DietColumn>
+          <Input name="dom_4" />
+        </DietColumn>
+        <DietColumn>
+          <Input name="dom_5" />
+        </DietColumn>
+        <DietColumn>
+          <Input name="dom_6" />
+        </DietColumn>
+        <DietColumn>
+          <Input name="dom_7" />
+        </DietColumn>
       </DietRow>
       <DietRow>
-        <DietColumn>Domingo</DietColumn>
-        <DietColumn>Segunda</DietColumn>
-        <DietColumn>Terça</DietColumn>
-        <DietColumn>Quarta</DietColumn>
-        <DietColumn>Quinta</DietColumn>
-        <DietColumn>Sexta</DietColumn>
-        <DietColumn>Sábado</DietColumn>
+        <DietColumn>
+          <Input name="seg_1" />
+        </DietColumn>
+        <DietColumn>
+          <Input name="seg_2" />
+        </DietColumn>
+        <DietColumn>
+          <Input name="seg_3" />
+        </DietColumn>
+        <DietColumn>
+          <Input name="seg_4" />
+        </DietColumn>
+        <DietColumn>
+          <Input name="seg_5" />
+        </DietColumn>
+        <DietColumn>
+          <Input name="seg_6" />
+        </DietColumn>
+        <DietColumn>
+          <Input name="seg_7" />
+        </DietColumn>
       </DietRow>
       <DietRow>
-        <DietColumn>Domingo</DietColumn>
-        <DietColumn>Segunda</DietColumn>
-        <DietColumn>Terça</DietColumn>
-        <DietColumn>Quarta</DietColumn>
-        <DietColumn>Quinta</DietColumn>
-        <DietColumn>Sexta</DietColumn>
-        <DietColumn>Sábado</DietColumn>
+        <DietColumn>
+          <Input name="ter_1" />
+        </DietColumn>
+        <DietColumn>
+          <Input name="ter_2" />
+        </DietColumn>
+        <DietColumn>
+          <Input name="ter_3" />
+        </DietColumn>
+        <DietColumn>
+          <Input name="ter_4" />
+        </DietColumn>
+        <DietColumn>
+          <Input name="ter_5" />
+        </DietColumn>
+        <DietColumn>
+          <Input name="ter_6" />
+        </DietColumn>
+        <DietColumn>
+          <Input name="ter_7" />
+        </DietColumn>
       </DietRow>
       <DietRow>
-        <DietColumn>Domingo</DietColumn>
-        <DietColumn>Segunda</DietColumn>
-        <DietColumn>Terça</DietColumn>
-        <DietColumn>Quarta</DietColumn>
-        <DietColumn>Quinta</DietColumn>
-        <DietColumn>Sexta</DietColumn>
-        <DietColumn>Sábado</DietColumn>
+        <DietColumn>
+          <Input name="qua_1" />
+        </DietColumn>
+        <DietColumn>
+          <Input name="qua_2" />
+        </DietColumn>
+        <DietColumn>
+          <Input name="qua_3" />
+        </DietColumn>
+        <DietColumn>
+          <Input name="qua_4" />
+        </DietColumn>
+        <DietColumn>
+          <Input name="qua_5" />
+        </DietColumn>
+        <DietColumn>
+          <Input name="qua_6" />
+        </DietColumn>
+        <DietColumn>
+          <Input name="qua_7" />
+        </DietColumn>
       </DietRow>
       <DietRow>
-        <DietColumn>Domingo</DietColumn>
-        <DietColumn>Segunda</DietColumn>
-        <DietColumn>Terça</DietColumn>
-        <DietColumn>Quarta</DietColumn>
-        <DietColumn>Quinta</DietColumn>
-        <DietColumn>Sexta</DietColumn>
-        <DietColumn>Sábado</DietColumn>
+        <DietColumn>
+          <Input name="qui_1" />
+        </DietColumn>
+        <DietColumn>
+          <Input name="qui_2" />
+        </DietColumn>
+        <DietColumn>
+          <Input name="qui_3" />
+        </DietColumn>
+        <DietColumn>
+          <Input name="qui_4" />
+        </DietColumn>
+        <DietColumn>
+          <Input name="qui_5" />
+        </DietColumn>
+        <DietColumn>
+          <Input name="qui_6" />
+        </DietColumn>
+        <DietColumn>
+          <Input name="qui_7" />
+        </DietColumn>
       </DietRow>
       <DietRow>
-        <DietColumn>Domingo</DietColumn>
-        <DietColumn>Segunda</DietColumn>
-        <DietColumn>Terça</DietColumn>
-        <DietColumn>Quarta</DietColumn>
-        <DietColumn>Quinta</DietColumn>
-        <DietColumn>Sexta</DietColumn>
-        <DietColumn>Sábado</DietColumn>
+        <DietColumn>
+          <Input name="sex_1" />
+        </DietColumn>
+        <DietColumn>
+          <Input name="sex_2" />
+        </DietColumn>
+        <DietColumn>
+          <Input name="sex_3" />
+        </DietColumn>
+        <DietColumn>
+          <Input name="sex_4" />
+        </DietColumn>
+        <DietColumn>
+          <Input name="sex_5" />
+        </DietColumn>
+        <DietColumn>
+          <Input name="sex_6" />
+        </DietColumn>
+        <DietColumn>
+          <Input name="sex_7" />
+        </DietColumn>
+      </DietRow>
+      <DietRow>
+        <DietColumn>
+          <Input name="sab_1" />
+        </DietColumn>
+        <DietColumn>
+          <Input name="sab_2" />
+        </DietColumn>
+        <DietColumn>
+          <Input name="sab_3" />
+        </DietColumn>
+        <DietColumn>
+          <Input name="sab_4" />
+        </DietColumn>
+        <DietColumn>
+          <Input name="sab_5" />
+        </DietColumn>
+        <DietColumn>
+          <Input name="sab_6" />
+        </DietColumn>
+        <DietColumn>
+          <Input name="sab_7" />
+        </DietColumn>
       </DietRow>
       {/* <BigTitle title="Create a New Diet" />
       <Input handleOnChange={setDiet} />
