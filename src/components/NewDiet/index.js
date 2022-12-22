@@ -9,6 +9,24 @@ import NewDietStyles, { DietRow, DietColumn } from "./NewDiet.styles";
 const NewDiet = () => {
   const [diet, setDiet] = useState([]);
 
+  const weekDays = [
+    "Domingo",
+    "Segunda",
+    "Terça",
+    "Quarta",
+    "Quinta",
+    "Sexta",
+    "Sábado",
+  ];
+
+  const getTodayWeekDay = () => {
+    const d = new Date();
+    let index = d.getDay();
+    console.log(weekDays[index]);
+  };
+
+  getTodayWeekDay();
+
   const createPost = () => {
     const url = "http://localhost/wp-diet/wp-json/wp/v2/diets";
 
