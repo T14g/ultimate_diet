@@ -8,6 +8,8 @@ import NewDietStyles, { DietRow, DietColumn } from "./NewDiet.styles";
 
 const NewDiet = () => {
   const [diet, setDiet] = useState([]);
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
 
   const weekDays = [
     "Domingo",
@@ -25,10 +27,11 @@ const NewDiet = () => {
     console.log(weekDays[index]);
   };
 
-  getTodayWeekDay();
+  const getDietPeriod = () => `${startDate}/${endDate}`;
 
   const createPost = () => {
     const url = "http://localhost/wp-diet/wp-json/wp/v2/diets";
+    const dietPeriod = getDietPeriod();
 
     fetch(url, {
       method: "POST",
@@ -38,8 +41,8 @@ const NewDiet = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        title: "novo post",
-        content: "post content here 123",
+        title: "Nova Dieta Semanal",
+        content: `Período da dieta: ${dietPeriod}`,
         status: "publish",
       }),
     })
@@ -70,6 +73,33 @@ const NewDiet = () => {
   return (
     <NewDietStyles>
       <DietRow>
+        <DietColumn>
+          <h2>Crie novo plano de dieta da semana</h2>
+          <div>
+            <label for="start_date">Data inicial:</label>
+            <Input
+              name="start_date"
+              type="date"
+              id="start_date"
+              handleOnChange={setStartDate}
+            />
+            <br />
+            <label for="end_date">Data final:</label>
+            <Input
+              name="end_date"
+              type="date"
+              id="end_date"
+              handleOnChange={setEndDate}
+            />
+            <div>
+              Data inicial : {startDate}
+              <br />
+              Data final : {endDate}
+            </div>
+          </div>
+        </DietColumn>
+      </DietRow>
+      <DietRow>
         <DietColumn>Domingo</DietColumn>
         <DietColumn>Segunda</DietColumn>
         <DietColumn>Terça</DietColumn>
@@ -80,179 +110,180 @@ const NewDiet = () => {
       </DietRow>
       <DietRow>
         <DietColumn>
-          <Input name="dom_1" />
+          <Input type="text" name="dom_1" />
         </DietColumn>
         <DietColumn>
-          <Input name="dom_2" />
+          <Input type="text" name="dom_2" />
         </DietColumn>
         <DietColumn>
-          <Input name="dom_3" />
+          <Input type="text" name="dom_3" />
         </DietColumn>
         <DietColumn>
-          <Input name="dom_4" />
+          <Input type="text" name="dom_4" />
         </DietColumn>
         <DietColumn>
-          <Input name="dom_5" />
+          <Input type="text" name="dom_5" />
         </DietColumn>
         <DietColumn>
-          <Input name="dom_6" />
+          <Input type="text" name="dom_6" />
         </DietColumn>
         <DietColumn>
-          <Input name="dom_7" />
-        </DietColumn>
-      </DietRow>
-      <DietRow>
-        <DietColumn>
-          <Input name="seg_1" />
-        </DietColumn>
-        <DietColumn>
-          <Input name="seg_2" />
-        </DietColumn>
-        <DietColumn>
-          <Input name="seg_3" />
-        </DietColumn>
-        <DietColumn>
-          <Input name="seg_4" />
-        </DietColumn>
-        <DietColumn>
-          <Input name="seg_5" />
-        </DietColumn>
-        <DietColumn>
-          <Input name="seg_6" />
-        </DietColumn>
-        <DietColumn>
-          <Input name="seg_7" />
+          <Input type="text" name="dom_7" />
         </DietColumn>
       </DietRow>
       <DietRow>
         <DietColumn>
-          <Input name="ter_1" />
+          <Input type="text" name="seg_1" />
         </DietColumn>
         <DietColumn>
-          <Input name="ter_2" />
+          <Input type="text" name="seg_2" />
         </DietColumn>
         <DietColumn>
-          <Input name="ter_3" />
+          <Input type="text" name="seg_3" />
         </DietColumn>
         <DietColumn>
-          <Input name="ter_4" />
+          <Input type="text" name="seg_4" />
         </DietColumn>
         <DietColumn>
-          <Input name="ter_5" />
+          <Input type="text" name="seg_5" />
         </DietColumn>
         <DietColumn>
-          <Input name="ter_6" />
+          <Input type="text" name="seg_6" />
         </DietColumn>
         <DietColumn>
-          <Input name="ter_7" />
-        </DietColumn>
-      </DietRow>
-      <DietRow>
-        <DietColumn>
-          <Input name="qua_1" />
-        </DietColumn>
-        <DietColumn>
-          <Input name="qua_2" />
-        </DietColumn>
-        <DietColumn>
-          <Input name="qua_3" />
-        </DietColumn>
-        <DietColumn>
-          <Input name="qua_4" />
-        </DietColumn>
-        <DietColumn>
-          <Input name="qua_5" />
-        </DietColumn>
-        <DietColumn>
-          <Input name="qua_6" />
-        </DietColumn>
-        <DietColumn>
-          <Input name="qua_7" />
+          <Input type="text" name="seg_7" />
         </DietColumn>
       </DietRow>
       <DietRow>
         <DietColumn>
-          <Input name="qui_1" />
+          <Input type="text" name="ter_1" />
         </DietColumn>
         <DietColumn>
-          <Input name="qui_2" />
+          <Input type="text" name="ter_2" />
         </DietColumn>
         <DietColumn>
-          <Input name="qui_3" />
+          <Input type="text" name="ter_3" />
         </DietColumn>
         <DietColumn>
-          <Input name="qui_4" />
+          <Input type="text" name="ter_4" />
         </DietColumn>
         <DietColumn>
-          <Input name="qui_5" />
+          <Input type="text" name="ter_5" />
         </DietColumn>
         <DietColumn>
-          <Input name="qui_6" />
+          <Input type="text" name="ter_6" />
         </DietColumn>
         <DietColumn>
-          <Input name="qui_7" />
-        </DietColumn>
-      </DietRow>
-      <DietRow>
-        <DietColumn>
-          <Input name="sex_1" />
-        </DietColumn>
-        <DietColumn>
-          <Input name="sex_2" />
-        </DietColumn>
-        <DietColumn>
-          <Input name="sex_3" />
-        </DietColumn>
-        <DietColumn>
-          <Input name="sex_4" />
-        </DietColumn>
-        <DietColumn>
-          <Input name="sex_5" />
-        </DietColumn>
-        <DietColumn>
-          <Input name="sex_6" />
-        </DietColumn>
-        <DietColumn>
-          <Input name="sex_7" />
+          <Input type="text" name="ter_7" />
         </DietColumn>
       </DietRow>
       <DietRow>
         <DietColumn>
-          <Input name="sab_1" />
+          <Input type="text" name="qua_1" />
         </DietColumn>
         <DietColumn>
-          <Input name="sab_2" />
+          <Input type="text" name="qua_2" />
         </DietColumn>
         <DietColumn>
-          <Input name="sab_3" />
+          <Input type="text" name="qua_3" />
         </DietColumn>
         <DietColumn>
-          <Input name="sab_4" />
+          <Input type="text" name="qua_4" />
         </DietColumn>
         <DietColumn>
-          <Input name="sab_5" />
+          <Input type="text" name="qua_5" />
         </DietColumn>
         <DietColumn>
-          <Input name="sab_6" />
+          <Input type="text" name="qua_6" />
         </DietColumn>
         <DietColumn>
-          <Input name="sab_7" />
+          <Input type="text" name="qua_7" />
+        </DietColumn>
+      </DietRow>
+      <DietRow>
+        <DietColumn>
+          <Input type="text" name="qui_1" />
+        </DietColumn>
+        <DietColumn>
+          <Input type="text" name="qui_2" />
+        </DietColumn>
+        <DietColumn>
+          <Input type="text" name="qui_3" />
+        </DietColumn>
+        <DietColumn>
+          <Input type="text" name="qui_4" />
+        </DietColumn>
+        <DietColumn>
+          <Input type="text" name="qui_5" />
+        </DietColumn>
+        <DietColumn>
+          <Input type="text" name="qui_6" />
+        </DietColumn>
+        <DietColumn>
+          <Input type="text" name="qui_7" />
+        </DietColumn>
+      </DietRow>
+      <DietRow>
+        <DietColumn>
+          <Input type="text" name="sex_1" />
+        </DietColumn>
+        <DietColumn>
+          <Input type="text" name="sex_2" />
+        </DietColumn>
+        <DietColumn>
+          <Input type="text" name="sex_3" />
+        </DietColumn>
+        <DietColumn>
+          <Input type="text" name="sex_4" />
+        </DietColumn>
+        <DietColumn>
+          <Input type="text" name="sex_5" />
+        </DietColumn>
+        <DietColumn>
+          <Input type="text" name="sex_6" />
+        </DietColumn>
+        <DietColumn>
+          <Input type="text" name="sex_7" />
+        </DietColumn>
+      </DietRow>
+      <DietRow>
+        <DietColumn>
+          <Input type="text" name="sab_1" />
+        </DietColumn>
+        <DietColumn>
+          <Input type="text" name="sab_2" />
+        </DietColumn>
+        <DietColumn>
+          <Input type="text" name="sab_3" />
+        </DietColumn>
+        <DietColumn>
+          <Input type="text" name="sab_4" />
+        </DietColumn>
+        <DietColumn>
+          <Input type="text" name="sab_5" />
+        </DietColumn>
+        <DietColumn>
+          <Input type="text" name="sab_6" />
+        </DietColumn>
+        <DietColumn>
+          <Input type="text" name="sab_7" />
         </DietColumn>
       </DietRow>
       {/* <BigTitle title="Create a New Diet" />
-      <Input handleOnChange={setDiet} />
+      <Input type="text" handleOnChange={setDiet} />
       <br />
-      <Input handleOnChange={setDiet} />
+      <Input type="text" handleOnChange={setDiet} />
       <br />
-      <Input handleOnChange={setDiet} />
+      <Input type="text" handleOnChange={setDiet} />
       <br />
-      <Input handleOnChange={setDiet} />
+      <Input type="text" handleOnChange={setDiet} />
       <br />
-      <Input handleOnChange={setDiet} />
+      <Input type="text" handleOnChange={setDiet} />
       <br />
-      <Input handleOnChange={setDiet} />
+      <Input type="text" handleOnChange={setDiet} />
       <br />
-      <Button text="Save" handleOnClick={handleSubmit} /> */}
+ */}
+      <Button text="Salvar" handleOnClick={handleSubmit} />
     </NewDietStyles>
   );
 };
