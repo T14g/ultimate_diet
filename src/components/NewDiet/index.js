@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import BigTitle from "../BigTitle";
 import Button from "../Button";
 import Input from "../Input";
 import { WP_PASSWORD_ADMIN } from "../../../config";
@@ -7,7 +6,6 @@ import { WP_PASSWORD_ADMIN } from "../../../config";
 import NewDietStyles, { DietRow, DietColumn } from "./NewDiet.styles";
 
 const NewDiet = () => {
-  const [diet, setDiet] = useState([]);
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
 
