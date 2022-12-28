@@ -3,6 +3,8 @@ import Button from "../Button";
 import Input from "../Input";
 import Select from "../Select";
 
+import { defaultDiet, days, weekDays, foodList } from "./data";
+
 import { WP_PASSWORD_ADMIN } from "../../../config";
 
 import NewDietStyles, { DietRow, DietColumn, Label } from "./NewDiet.styles";
@@ -10,83 +12,7 @@ import NewDietStyles, { DietRow, DietColumn, Label } from "./NewDiet.styles";
 const NewDiet = () => {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
-  const [diet, setDiet] = useState({
-    dom: {
-      0: "",
-      1: "",
-      2: "",
-      3: "",
-      4: "",
-      5: "",
-    },
-    seg: {
-      0: "",
-      1: "",
-      2: "",
-      3: "",
-      4: "",
-      5: "",
-    },
-    ter: {
-      0: "",
-      1: "",
-      2: "",
-      3: "",
-      4: "",
-      5: "",
-    },
-    qua: {
-      0: "",
-      1: "",
-      2: "",
-      3: "",
-      4: "",
-      5: "",
-    },
-    qui: {
-      0: "",
-      1: "",
-      2: "",
-      3: "",
-      4: "",
-      5: "",
-    },
-    sex: {
-      0: "",
-      1: "",
-      2: "",
-      3: "",
-      4: "",
-      5: "",
-    },
-    sab: {
-      0: "",
-      1: "",
-      2: "",
-      3: "",
-      4: "",
-      5: "",
-    },
-  });
-
-  const weekDays = [
-    "Domingo",
-    "Segunda",
-    "Terça",
-    "Quarta",
-    "Quinta",
-    "Sexta",
-    "Sábado",
-  ];
-
-  const foodList = [
-    "Omelete",
-    "Arroz + Omelete",
-    "Shake Calórico",
-    "Strogonoff",
-    "Sanduíche",
-    "Massa, frango, molho de tomate",
-  ];
+  const [diet, setDiet] = useState(defaultDiet);
 
   const getTodayWeekDay = () => {
     const d = new Date();
@@ -145,6 +71,31 @@ const NewDiet = () => {
       });
   };
 
+  const renderDailySelects = (day) => {
+    let components = [];
+
+    for (let i = 0; i < 6; i++) {
+      components.push(
+        <Select
+          options={foodList}
+          dataset={{ "data-day": day, "data-meal": i }}
+          handleOnChange={handleSelectFood}
+        />
+      );
+    }
+
+    return components.map((el) => el);
+  };
+
+  const renderWeekDays = () => {
+    return days.map((item) => (
+      <DietColumn>
+        <Label>{item.day}</Label>
+        {renderDailySelects(item.slug)}
+      </DietColumn>
+    ));
+  };
+
   return (
     <NewDietStyles>
       <DietRow>
@@ -174,78 +125,7 @@ const NewDiet = () => {
           </div>
         </DietColumn>
       </DietRow>
-      <DietRow>
-        <DietColumn>
-          <Label>Domingo</Label>
-        </DietColumn>
-        <DietColumn>
-          <Label>Segunda</Label>
-          <Select
-            options={foodList}
-            dataset={{ "data-day": "seg ", "data-meal": "0" }}
-            handleOnChange={handleSelectFood}
-          />
-          <Select
-            options={foodList}
-            dataset={{ "data-day": "seg ", "data-meal": "1" }}
-            handleOnChange={handleSelectFood}
-          />
-          <Select
-            options={foodList}
-            dataset={{ "data-day": "seg ", "data-meal": "2" }}
-            handleOnChange={handleSelectFood}
-          />
-          <Select
-            options={foodList}
-            dataset={{ "data-day": "seg ", "data-meal": "3" }}
-            handleOnChange={handleSelectFood}
-          />
-          <Select
-            options={foodList}
-            dataset={{ "data-day": "seg ", "data-meal": "4" }}
-            handleOnChange={handleSelectFood}
-          />
-          <Select
-            options={foodList}
-            dataset={{ "data-day": "seg ", "data-meal": "5" }}
-            handleOnChange={handleSelectFood}
-          />
-          <Select
-            options={foodList}
-            data-day="seg "
-            data-meal="6"
-            handleOnChange={handleSelectFood}
-          />
-        </DietColumn>
-        <DietColumn>Terça</DietColumn>
-        <DietColumn>Quarta</DietColumn>
-        <DietColumn>Quinta</DietColumn>
-        <DietColumn>Sexta</DietColumn>
-        <DietColumn>Sábado</DietColumn>
-      </DietRow>
-      <DietRow>
-        <DietColumn>
-          <Select options={foodList} name="dom_1" />
-        </DietColumn>
-        <DietColumn>
-          <Select options={foodList} name="seg_1" />
-        </DietColumn>
-        <DietColumn>
-          <Select options={foodList} name="ter_1" />
-        </DietColumn>
-        <DietColumn>
-          <Select options={foodList} name="qua_1" />
-        </DietColumn>
-        <DietColumn>
-          <Select options={foodList} name="qui_1" />
-        </DietColumn>
-        <DietColumn>
-          <Select options={foodList} name="sex_1" />
-        </DietColumn>
-        <DietColumn>
-          <Select options={foodList} name="sab_1" />
-        </DietColumn>
-      </DietRow>
+      <DietRow>{renderWeekDays()}</DietRow>
       <Button text="Salvar" handleOnClick={handleSubmit} />
     </NewDietStyles>
   );
