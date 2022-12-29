@@ -101,29 +101,32 @@ const NewDiet = () => {
       <DietRow>
         <DietColumn>
           <h2>Crie novo plano de dieta da semana</h2>
-          <div>
-            <label for="start_date">Data inicial:</label>
-            <Input
-              name="start_date"
-              type="date"
-              id="start_date"
-              handleOnChange={setStartDate}
-            />
-            <br />
-            <label for="end_date">Data final:</label>
-            <Input
-              name="end_date"
-              type="date"
-              id="end_date"
-              handleOnChange={setEndDate}
-            />
-            <div>
-              Data inicial : {startDate}
-              <br />
-              Data final : {endDate}
-            </div>
-          </div>
         </DietColumn>
+      </DietRow>
+      <DietRow className="align-start">
+        <DietColumn>
+          <label for="start_date">Data inicial:</label>
+          <Input
+            name="start_date"
+            type="date"
+            id="start_date"
+            handleOnChange={setStartDate}
+          />
+        </DietColumn>
+        <DietColumn>
+          {" "}
+          <label for="end_date">Data final:</label>
+          <Input
+            name="end_date"
+            type="date"
+            id="end_date"
+            handleOnChange={setEndDate}
+          />
+        </DietColumn>
+      </DietRow>
+      <DietRow className="align-start">
+        <DietColumn>Data inicial : {startDate}</DietColumn>
+        <DietColumn>Data final : {endDate}</DietColumn>
       </DietRow>
       <DietRow>{renderWeekDays()}</DietRow>
       <Button text="Salvar" handleOnClick={handleSubmit} />
