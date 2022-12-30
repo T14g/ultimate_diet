@@ -1,9 +1,10 @@
 import React from "react";
+import ButtonStyles from "./Button.styles";
 
 const Button = ({ text, handleOnClick }) => (
-  <button onClick={handleOnClick} data-testId="button">
+  <ButtonStyles onClick={handleOnClick} data-testId="button">
     {text}
-  </button>
+  </ButtonStyles> 
 );
 
 export default Button;
