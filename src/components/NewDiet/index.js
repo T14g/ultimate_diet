@@ -30,6 +30,16 @@ const NewDiet = () => {
 
   const getDietPeriod = () => `${startDate}/${endDate}`;
 
+  const handleGetDiets = () => {
+    const url = "http://localhost/wp-diet/wp-json/wp/v2/diets";
+
+    fetch(url)
+      .then((result) => result.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
+
   const createPost = () => {
     const url = "http://localhost/wp-diet/wp-json/wp/v2/diets";
     const dietPeriod = getDietPeriod();
@@ -130,6 +140,7 @@ const NewDiet = () => {
       </DietRow>
       <DietRow>{renderWeekDays()}</DietRow>
       <Button text="Salvar" handleOnClick={handleSubmit} />
+      <Button text="Get Diets" handleOnClick={handleGetDiets} />
     </NewDietStyles>
   );
 };

@@ -1,5 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import NewDiet from "./components/NewDiet";
+import UserPanel from "./pages/UserPanel";
 
-ReactDOM.render(<NewDiet />, document.getElementById("ultimate-diet"));
+ReactDOM.render(<UserPanel />, document.getElementById("ultimate-diet"));
