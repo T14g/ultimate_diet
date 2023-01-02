@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../Button";
 import DietListStyles from "./DietList.styles";
 
 const DietList = ({ list }) => {
@@ -11,7 +12,16 @@ const DietList = ({ list }) => {
   return (
     <DietListStyles>
       {list.map((item) => (
-        <li>Dieta criada em: {formatDate(item.date)}</li>
+        <tr>
+          <td>Dieta criada em: {formatDate(item.date)}</td>
+          <td>
+            <Button text="Ver dieta" />
+          </td>
+          <td>
+            <Button text="Update content" />
+          </td>
+          <td>{item.content.rendered}</td>
+        </tr>
       ))}
     </DietListStyles>
   );
