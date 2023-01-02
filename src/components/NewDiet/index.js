@@ -27,7 +27,7 @@ const NewDiet = () => {
     // currentDiet[day][meal] = food;
     // setDiet(currentDiet);
   };
-
+  
   const getDietPeriod = () => `${startDate}/${endDate}`;
 
   const handleGetDiets = () => {
