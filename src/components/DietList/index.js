@@ -34,6 +34,42 @@ const DietList = ({ list, setUpdate }) => {
       });
   };
 
+  const handleDelete = (id) => {
+    const url = "http://localhost/wp-diet/wp-json/jwt-auth/v1/token";
+
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ username: "admin", password: WP_PASSWORD_ADMIN }),
+    })
+      .then((result) => result.json())
+      .then((user) => {
+        console.log(user.token);
+        localStorage.setItem("jwt", user.token);
+        deletePost(id);
+      });
+  };
+
+  const deletePost = (id) => {
+    const url = `http://localhost/wp-diet/wp-json/wp/v2/diets/${id}`;
+
+    fetch(url, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    })
+      .then((result) => result.json())
+      .then((data) => {
+        console.log(data);
+        setUpdate();
+      });
+  };
+
   const handleUpdate = (id) => {
     const url = "http://localhost/wp-diet/wp-json/jwt-auth/v1/token";
 
@@ -67,7 +103,10 @@ const DietList = ({ list, setUpdate }) => {
             />
           </td>
           <td>
-            <Button text="DELETE " />
+            <Button
+              text="DELETE "
+              handleOnClick={() => handleDelete(item.id)}
+            />
           </td>
           <td>{item.content.rendered}</td>
         </tr>
