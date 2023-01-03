@@ -66,6 +66,9 @@ const DietList = ({ list, setUpdate }) => {
               handleOnClick={() => handleUpdate(item.id)}
             />
           </td>
+          <td>
+            <Button text="DELETE " />
+          </td>
           <td>{item.content.rendered}</td>
         </tr>
       ))}
