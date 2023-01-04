@@ -29,7 +29,6 @@ const DietList = ({ list, setUpdate }) => {
     })
       .then((result) => result.json())
       .then((data) => {
-        console.log(data);
         setUpdate();
       });
   };
@@ -46,7 +45,6 @@ const DietList = ({ list, setUpdate }) => {
     })
       .then((result) => result.json())
       .then((user) => {
-        console.log(user.token);
         localStorage.setItem("jwt", user.token);
         deletePost(id);
       });
@@ -65,7 +63,6 @@ const DietList = ({ list, setUpdate }) => {
     })
       .then((result) => result.json())
       .then((data) => {
-        console.log(data);
         setUpdate();
       });
   };
@@ -82,7 +79,6 @@ const DietList = ({ list, setUpdate }) => {
     })
       .then((result) => result.json())
       .then((user) => {
-        console.log(user.token);
         localStorage.setItem("jwt", user.token);
         updatePost(id);
       });
