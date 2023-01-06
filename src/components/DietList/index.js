@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Button from "../Button";
 import DietListStyles from "./DietList.styles";
 
@@ -11,44 +11,26 @@ const DietList = ({ list, setUpdate }) => {
     return formated;
   };
 
-  const handleAuth = () => {
-    const url = "http://localhost/wp-diet/wp-json/jwt-auth/v1/token";
+  const updatePost = (id) => {
+    const url = `http://localhost/wp-diet/wp-json/wp/v2/diets/${id}`;
 
     fetch(url, {
       method: "POST",
       headers: {
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        Accept: "application/json",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ username: "admin", password: WP_PASSWORD_ADMIN }),
+      body: JSON.stringify({
+        title: "Nova Dieta Semanal",
+        content: `Diet updated!!!`,
+        status: "publish",
+      }),
     })
       .then((result) => result.json())
-      .then((user) => {
-        localStorage.setItem("jwt", user.token);
+      .then((data) => {
+        setUpdate();
       });
-  };
-
-  const updatePost = (id) => {
-    const url = `http://localhost/wp-diet/wp-json/wp/v2/diets/${id}`;
-
-    handleAuth().then(() => {
-      fetch(url, {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          title: "Nova Dieta Semanal",
-          content: `Diet updated!!!`,
-          status: "publish",
-        }),
-      })
-        .then((result) => result.json())
-        .then((data) => {
-          setUpdate();
-        });
-    });
   };
 
   const handleDelete = (id) => {
@@ -71,20 +53,18 @@ const DietList = ({ list, setUpdate }) => {
   const deletePost = (id) => {
     const url = `http://localhost/wp-diet/wp-json/wp/v2/diets/${id}`;
 
-    handleAuth().then(() => {
-      fetch(url, {
-        method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-      })
-        .then((result) => result.json())
-        .then((data) => {
-          setUpdate();
-        });
-    });
+    fetch(url, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    })
+      .then((result) => result.json())
+      .then((data) => {
+        setUpdate();
+      });
   };
 
   const handleUpdate = (id) => {
@@ -103,6 +83,28 @@ const DietList = ({ list, setUpdate }) => {
         updatePost(id);
       });
   };
+
+  useEffect(() => {
+    const handleAuth = () => {
+      const url = "http://localhost/wp-diet/wp-json/jwt-auth/v1/token";
+
+      fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: "admin",
+          password: WP_PASSWORD_ADMIN,
+        }),
+      })
+        .then((result) => result.json())
+        .then((user) => {
+          localStorage.setItem("jwt", user.token);
+        });
+    };
+    handleAuth();
+  }, []);
 
   return (
     <DietListStyles>
