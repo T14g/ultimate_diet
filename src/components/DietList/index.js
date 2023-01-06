@@ -121,7 +121,7 @@ const DietList = ({ list, setUpdate }) => {
           <td>
             <Button
               text="DELETE "
-              handleOnClick={() => handleDelete(item.id)}
+              image.png              handleOnClick={() => deletePost(item.id)}
             />
           </td>
           <td>{item.content.rendered}</td>
