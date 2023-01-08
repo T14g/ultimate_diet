@@ -33,23 +33,6 @@ const DietList = ({ list, setUpdate }) => {
       });
   };
 
-  const handleDelete = (id) => {
-    const url = "http://localhost/wp-diet/wp-json/jwt-auth/v1/token";
-
-    fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ username: "admin", password: WP_PASSWORD_ADMIN }),
-    })
-      .then((result) => result.json())
-      .then((user) => {
-        localStorage.setItem("jwt", user.token);
-        deletePost(id);
-      });
-  };
-
   const deletePost = (id) => {
     const url = `http://localhost/wp-diet/wp-json/wp/v2/diets/${id}`;
 
@@ -64,23 +47,6 @@ const DietList = ({ list, setUpdate }) => {
       .then((result) => result.json())
       .then((data) => {
         setUpdate();
-      });
-  };
-
-  const handleUpdate = (id) => {
-    const url = "http://localhost/wp-diet/wp-json/jwt-auth/v1/token";
-
-    fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ username: "admin", password: WP_PASSWORD_ADMIN }),
-    })
-      .then((result) => result.json())
-      .then((user) => {
-        localStorage.setItem("jwt", user.token);
-        updatePost(id);
       });
   };
 
@@ -117,7 +83,7 @@ const DietList = ({ list, setUpdate }) => {
           <td>
             <Button
               text="Update content"
-              handleOnClick={() => handleUpdate(item.id)}
+              handleOnClick={() => updatePost(item.id)}
             />
           </td>
           <td>
