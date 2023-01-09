@@ -115,7 +115,7 @@ const NewDiet = () => {
       </DietRow>
       <DietRow className="align-start">
         <DietColumn>
-          <label for="start_date">Data inicial:</label>
+          <Label for="start_date">Data inicial:</Label>
           <Input
             name="start_date"
             type="date"
@@ -125,7 +125,7 @@ const NewDiet = () => {
         </DietColumn>
         <DietColumn>
           {" "}
-          <label for="end_date">Data final:</label>
+          <Label for="end_date">Data final:</Label>
           <Input
             name="end_date"
             type="date"
