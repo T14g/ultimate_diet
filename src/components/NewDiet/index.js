@@ -20,12 +20,16 @@ const NewDiet = () => {
     console.log(weekDays[index]);
   };
 
+  console.log(diet);
+
   const handleSelectFood = (e) => {
     let currentDiet = foodList;
-    // const day = e.target.dataset;
-    console.log(e.dataset);
-    // currentDiet[day][meal] = food;
-    // setDiet(currentDiet);
+    const day = e.dataset.day;
+    const meal = parseInt(e.dataset.meal);
+    const food = e.value;
+    console.log(currentDiet);
+    currentDiet[day][meal] = food;
+    setDiet(currentDiet);
   };
   
   const getDietPeriod = () => `${startDate}/${endDate}`;
