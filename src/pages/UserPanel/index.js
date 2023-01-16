@@ -26,10 +26,21 @@ const UserPanel = () => {
 
   return (
     <UserPanelStyles>
-      <h2>Escolha uma ação</h2>
-      <p>Current action: {action}</p>
-      <Button text="Nova Dieta" handleOnClick={() => setAction("new-diet")} />
-      <Button text="Ver Dietas" handleOnClick={() => setAction("view-diets")} />
+      {action === "" && (
+        <>
+          <h2>Escolha uma ação</h2>
+          <p>Current action: {action}</p>
+          <Button
+            text="Nova Dieta"
+            handleOnClick={() => setAction("new-diet")}
+          />
+          <Button
+            text="Ver Dietas"
+            handleOnClick={() => setAction("view-diets")}
+          />
+        </>
+      )}
+
       {action === "new-diet" && <NewDiet />}
       {action === "view-diets" && diets.length > 0 && (
         <DietList list={diets} setUpdate={() => setUpdate(true)} />
