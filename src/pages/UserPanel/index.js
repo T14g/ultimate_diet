@@ -45,6 +45,9 @@ const UserPanel = () => {
       {action === "view-diets" && diets.length > 0 && (
         <DietList list={diets} setUpdate={() => setUpdate(true)} />
       )}
+      {action !== "" && (
+        <Button text="Voltar" handleOnClick={() => setAction("")} />
+      )}
     </UserPanelStyles>
   );
 };
