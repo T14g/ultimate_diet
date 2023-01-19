@@ -112,13 +112,8 @@ const NewDiet = () => {
 
   return (
     <NewDietStyles>
-      <DietRow>
-        <DietColumn>
-          <h2>Crie novo plano de dieta da semana</h2>
-        </DietColumn>
-      </DietRow>
       <DietRow className="align-start">
-        <DietColumn>
+        <DietColumn className="no-bg white-text no-padding-left">
           <Label for="start_date">Data inicial:</Label>
           <Input
             name="start_date"
@@ -127,7 +122,7 @@ const NewDiet = () => {
             handleOnChange={setStartDate}
           />
         </DietColumn>
-        <DietColumn>
+        <DietColumn className="no-bg white-text no-padding-left">
           {" "}
           <Label for="end_date">Data final:</Label>
           <Input
@@ -137,10 +132,6 @@ const NewDiet = () => {
             handleOnChange={setEndDate}
           />
         </DietColumn>
-      </DietRow>
-      <DietRow className="align-start">
-        <DietColumn>Data inicial : {startDate}</DietColumn>
-        <DietColumn>Data final : {endDate}</DietColumn>
       </DietRow>
       <DietRow>{renderWeekDays()}</DietRow>
       <Button text="Salvar" handleOnClick={handleSubmit} />

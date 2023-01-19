@@ -27,6 +27,18 @@ export const DietColumn = styled.div`
   select {
     display: block;
   }
+
+  &.no-bg{
+    background: none;
+  }
+
+  &.white-text {
+    color: #fff;
+  }
+
+  &.no-padding-left {
+    padding-left :0;
+  }
 `;
 
 export default NewDietStyles;
