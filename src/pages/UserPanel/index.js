@@ -28,8 +28,6 @@ const UserPanel = () => {
     <UserPanelStyles>
       {action === "" && (
         <>
-          <h2>Escolha uma ação</h2>
-          <p>Current action: {action}</p>
           <Button
             text="Nova Dieta"
             handleOnClick={() => setAction("new-diet")}

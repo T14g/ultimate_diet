@@ -135,7 +135,7 @@ const NewDiet = () => {
       </DietRow>
       <DietRow>{renderWeekDays()}</DietRow>
       <Button text="Salvar" handleOnClick={handleSubmit} />
-      <Button text="Get Diets" handleOnClick={handleGetDiets} />
+      {/* <Button text="Get Diets" handleOnClick={handleGetDiets} /> */}
     </NewDietStyles>
   );
 };

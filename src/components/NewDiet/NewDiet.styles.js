@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const NewDietStyles = styled.div`
-  background: #017BBE;
+  padding: 20px;
 `;
 
 export const Label = styled.label`
