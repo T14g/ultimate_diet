@@ -26,6 +26,8 @@ export const DietColumn = styled.div`
 
   select {
     display: block;
+    margin-bottom: 10px;
+    padding: 5px;
   }
 
   &.no-bg{
